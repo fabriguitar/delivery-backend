@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "1b7a5d93-40e3-49e9-b3a2-08f44ad0dacc",
+		"name": "prueba-motoristas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24217766"
+	},
+	"item": [
+		{
+			"name": "registrar motorista",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Juan pedro Perez Diaz",
+							"type": "text"
+						},
+						{
+							"key": "dia",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "mes",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "anio",
+							"value": "1998",
+							"type": "text"
+						},
+						{
+							"key": "residencia",
+							"value": "tegucigalpa",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "correo3@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "contrasenia",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "celular",
+							"value": "999999993",
+							"type": "text"
+						},
+						{
+							"key": "celularAlternativo",
+							"value": "99999988",
+							"type": "text"
+						},
+						{
+							"key": "sexo",
+							"value": "hombre",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/motorista/api/crearMotorista",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"crearMotorista"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logear motorista",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "correo",
+							"value": "correo@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "contrasenia",
+							"value": "123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/motorista/api/logear",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"logear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener ordenes disponibles (con estado 0 y zona en el params)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/motorista/api/orden/disponibles/z1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"orden",
+						"disponibles",
+						"z1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener ordenes tomadas en determinada zona y id motorista",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMotorista\": \"638ad3570d7029485103e199\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/motorista/api/orden/tomada/z3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"orden",
+						"tomada",
+						"z3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener ordenes entregadas en determinada zona y id motorista",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMotorista\": \"638ad3570d7029485103e199\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/motorista/api/orden/entregada/z1",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"orden",
+						"entregada",
+						"z1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener detalles de orden mediante id orden",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3001/motorista/api/orden/detallar/6394365143af44e4c6d71469",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"orden",
+						"detallar",
+						"6394365143af44e4c6d71469"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "motorista tomara ordern, enviara estado = 1 , y su id mas id de orden",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMotorista\":\"638ad3570d7029485103e199\",\r\n    \"estado\": 1, \r\n    \"idOrden\":\"639425c7306febdfa37a4e37\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/motorista/api/orden/tomar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"orden",
+						"tomar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "motorista actulizara a en origen ordern, enviara estado = 1 , y su id mas id de orden",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMotorista\":\"638ad3570d7029485103e199\",\r\n    \"estado\": 2, \r\n    \"idOrden\":\"639425c7306febdfa37a4e37\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/motorista/api/orden/tomar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"orden",
+						"tomar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "motorista actulizara a en camino ordern, enviara estado = 1 , y su id mas id de orden Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMotorista\":\"638ad3570d7029485103e199\",\r\n    \"estado\": 3, \r\n    \"idOrden\":\"639425c7306febdfa37a4e37\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/motorista/api/orden/tomar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"orden",
+						"tomar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "motorista actulizara a entregada ordern, enviara estado = 1 , y su id mas id de orden Copy 2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMotorista\":\"638ad3570d7029485103e199\",\r\n    \"estado\": 4, \r\n    \"idOrden\":\"639425c7306febdfa37a4e37\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/motorista/api/orden/tomar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"motorista",
+						"api",
+						"orden",
+						"tomar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

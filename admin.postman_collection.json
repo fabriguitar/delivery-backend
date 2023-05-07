@@ -1,0 +1,516 @@
+{
+	"info": {
+		"_postman_id": "bd87ef60-e176-4903-a636-ffeddd4fadff",
+		"name": "pruebas-admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24217766"
+	},
+	"item": [
+		{
+			"name": "logear admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "usuario",
+							"value": "admin1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/admin/api/logearse",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"logearse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear categoria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Tiendas",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/admin/api/categoria/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"categoria",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear empresa de una categoria (se envia por id params)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "urlImagen",
+							"value": "https://i.ibb.co/TRfQhpL/walmart.png",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "Coco baleadas",
+							"type": "text"
+						},
+						{
+							"key": "zona",
+							"value": "z2",
+							"type": "text"
+						},
+						{
+							"key": "nombreCategoria",
+							"value": "Restaurantes",
+							"type": "text"
+						},
+						{
+							"key": "informacion",
+							"value": "La colonia La colonia La colonia",
+							"type": "text"
+						},
+						{
+							"key": "direccion",
+							"value": "Metro mall",
+							"type": "text"
+						},
+						{
+							"key": "idCategoria",
+							"value": "6386d5ac349552987a8077c5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/admin/api/crearEmpresa/6457525a99d3217ecae17716",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"crearEmpresa",
+						"6457525a99d3217ecae17716"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminar una empresa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/admin/eliminarEmpresa/6386e6a8d72fc32ef7711025",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"admin",
+						"eliminarEmpresa",
+						"6386e6a8d72fc32ef7711025"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear subcategoria  se enviara en el params el id de la empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Hogar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/admin/nuevaSubCategoria/638ee1954b6dc60efbebe570",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"admin",
+						"nuevaSubCategoria",
+						"638ee1954b6dc60efbebe570"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener subcategorias (se envia en params id  de la empresa)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/admin/obtenerSubCategorias/638ee0b94b6dc60efbebe564",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"admin",
+						"obtenerSubCategorias",
+						"638ee0b94b6dc60efbebe564"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear un producto( mediante params se envia subcategoria)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "urlImagen",
+							"value": "https://i.ibb.co/q5vD5LY/pizza-calzone.jpg",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "calzone",
+							"type": "text"
+						},
+						{
+							"key": "descripcion",
+							"value": "prueba crear producto",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/admin/api/crearProducto/63871fb88f646f629345a86f",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"crearProducto",
+						"63871fb88f646f629345a86f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener productos por subcategoria   (en params enviar id empresa)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/admin/api/crearProducto/obtenerProductos/subcategoria/638ee0b94b6dc60efbebe564",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"crearProducto",
+						"obtenerProductos",
+						"subcategoria",
+						"638ee0b94b6dc60efbebe564"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "solicitudes de motoristas , servira para dar de alta motoristas recien registrados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/api/admin/solicitudes",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"admin",
+						"solicitudes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener un solicitante a motorista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/admin/api/solicitud/63882172da563f3c5f251051",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"solicitud",
+						"63882172da563f3c5f251051"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aprobar solicitud  de un posible motorista",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/admin/api/solicitud/aprobar/64573e908795113232ee91ca",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"solicitud",
+						"aprobar",
+						"64573e908795113232ee91ca"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "dar de baja a un posible motorista",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/admin/api/solicitud/rechazar/63883a4b05f6c9af1c2c5461",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"solicitud",
+						"rechazar",
+						"63883a4b05f6c9af1c2c5461"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar ordenes pendiente enviar 0 en body.estado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"estado\":0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/admin/api/ordenesDisponibles/z3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"ordenesDisponibles",
+						"z3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener motoristas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/admin/api/listarMotoristas",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"listarMotoristas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "asignar una orden a determinado motorista",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMotorista\":\"6389873ae9ef1d317f9380e2\",\r\n    \"estado\": 1, \r\n    \"idOrden\":\"638d6636b3a269bdf3c48d84\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/admin/api/asignarOrdenMotorista",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"asignarOrdenMotorista"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener empresas listadas por categorias y zonas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreCategoria\": \"Restaurantes\",\r\n    \"zona\" : \"z1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/admin/api/obtenerEmpresas",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"obtenerEmpresas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "devolvera una empresa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/admin/api/obtenerEmpresaUnica/63942afe306febdfa37a4e5a",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"obtenerEmpresaUnica",
+						"63942afe306febdfa37a4e5a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener un producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/admin/api/obtenerProductoUnico/645753f41f99f04815479de4",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"admin",
+						"api",
+						"obtenerProductoUnico",
+						"645753f41f99f04815479de4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

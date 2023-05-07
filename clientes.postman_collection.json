@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "f562f079-3b71-460d-a8b9-cd5f87e2e7e0",
+		"name": "prueba-clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24217766"
+	},
+	"item": [
+		{
+			"name": "logear cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"correo\": \"correo@gmail.com\",\r\n    \"contrasenia\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/cliente/api/logearse",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cliente",
+						"api",
+						"logearse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar empresas por categoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "localhost:3001/cliente/api/empresa/obtenerTodas/6386d587349552987a8077c3",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cliente",
+						"api",
+						"empresa",
+						"obtenerTodas",
+						"6386d587349552987a8077c3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener categorias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/cliente/api/categoria/obtenerTodas",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cliente",
+						"api",
+						"categoria",
+						"obtenerTodas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Francisco Gomez Santos",
+							"type": "text"
+						},
+						{
+							"key": "dia",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "mes",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "anio",
+							"value": "1998",
+							"type": "text"
+						},
+						{
+							"key": "residencia",
+							"value": "tegucigalpa",
+							"type": "text"
+						},
+						{
+							"key": "correo",
+							"value": "correo74@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "contrasenia",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "celular",
+							"value": "99999499",
+							"type": "text"
+						},
+						{
+							"key": "celularAlternativo",
+							"value": "99999988",
+							"type": "text"
+						},
+						{
+							"key": "sexo",
+							"value": "hombre",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3001/cliente/api/registro",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cliente",
+						"api",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener empresa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/cliente/api/empresa/obtener/63941f2014db0d557bad68d0",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cliente",
+						"api",
+						"empresa",
+						"obtener",
+						"63941f2014db0d557bad68d0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener productos por subcategoria enviando el id empresa (se envia en params el id de la empresa)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/cliente/api/empresa/productosPorSubCateogoria/63942afe306febdfa37a4e5a",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cliente",
+						"api",
+						"empresa",
+						"productosPorSubCateogoria",
+						"63942afe306febdfa37a4e5a"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cliente crea una orden",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productos\": [{\"id\":\"6386f85c105982ed87bd75f6\", \"cantidad\":10, \"nombre\":\"pizza suprema\" } ,{\"id\":\"63871cee16b53cc0138254c4\", \"cantidad\":2} ],\r\n    \"idUsuario\": \"6389873ae9ef1d317f9380e2\",\r\n    \"subTotal\": 500,\r\n    \"idEmpresa\": \"6386e871bc9027830cd20231\",\r\n    \"destino\": {\"latitud\":\"24342342342423\", \"altitud\": \"45345345345345\"},\r\n    \"zona\": \"z3\",\r\n    \"direccionCliente\":\"Centro Tegucigalpa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/cliente/api/orden/crear",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cliente",
+						"api",
+						"orden",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar si una orden esta en destino",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/cliente/api/orden/entregada/63942d8c306febdfa37a4e9a",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cliente",
+						"api",
+						"orden",
+						"entregada",
+						"63942d8c306febdfa37a4e9a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
